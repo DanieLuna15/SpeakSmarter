@@ -36,37 +36,17 @@ class RoleSeeder extends Seeder
 
 
         $permissions_admin = [
-            $permission_create_role,
-            $permission_read_role,
-            $permission_update_role,
-            $permission_delete_role,
-
-            $permission_create_lesson,
-            $permission_read_lesson,
-            $permission_update_lesson,
-            $permission_delete_lesson,
-
-            $permission_create_category,
-            $permission_read_category,
-            $permission_update_category,
-            $permission_delete_category,
+            $permission_create_role, $permission_read_role, $permission_update_role, $permission_delete_role,
+            $permission_create_lesson, $permission_read_lesson, $permission_update_lesson, $permission_delete_lesson,
+            $permission_create_category, $permission_read_category, $permission_update_category, $permission_delete_category
         ];
 
         $permissions_editor = [
-            $permission_create_lesson,
-            $permission_read_lesson,
-            $permission_update_lesson,
-            $permission_delete_lesson,
-
-            $permission_create_category,
-            $permission_read_category,
-            $permission_update_category,
-            $permission_delete_category,
+            $permission_create_lesson, $permission_read_lesson, $permission_update_lesson, $permission_delete_lesson,
+            $permission_create_category, $permission_read_category, $permission_update_category, $permission_delete_category
         ];
 
-
-        $role_admin->revokePermissionTo($permissions_admin);
-        $role_editor->revokePermissionTo($permissions_editor);
-
+        $role_admin->syncPermissionsgivePermissionTo($permissions_admin);
+        $role_editor->syncPermissionsgivePermissionTo($permissions_editor);
     }
 }
