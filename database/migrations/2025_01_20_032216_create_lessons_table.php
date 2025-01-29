@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('image_uri', 255)->nullable();
             $table->string('content_uri', 255);
             $table->string('pdf_uri', 255);
+            $table->boolean('is_free')->default(false);
 
+            // $table->unsignedBigInteger('category_id'); // Reemplazado unsignedInteger por unsignedBigInteger
+            // $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            
             $table->unsignedBigInteger('level_id'); // Reemplazado unsignedInteger por unsignedBigInteger
             $table->foreign('level_id')->references('id')->on('levels')->onUpdate('cascade')->onDelete('cascade');
 
