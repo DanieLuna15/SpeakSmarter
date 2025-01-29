@@ -60,7 +60,7 @@ const deleteCategory = (id) => {
                                             v-if="$page.props.user.permissions.includes('update categories')">Edit
                                         </Link>
                                         <Link class="text-red-600 py-2 px-4"
-                                            :href="route('categories.edit', category.id)"
+                                            :href="route('categories.destroy', category.id)"
                                             @click="deleteCategory(category.id)"
                                             v-if="$page.props.user.permissions.includes('delete categories')">Delete
                                         </Link>
