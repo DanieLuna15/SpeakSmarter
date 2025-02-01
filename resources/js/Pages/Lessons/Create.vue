@@ -1,28 +1,40 @@
 <script>
 export default {
-    name: "CategoryCreate"
+    name: "LessonCreate"
 }
 </script>
 
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import CategoryForm from '@/Components/Categories/Form.vue';
+import LessonForm from '@/Components/Lessons/Form.vue';
+
+defineProps({
+    categories: {
+        type: Object,
+        required: true
+    }, 
+    levels: {
+        type: Object,
+        required: true  
+    }
+})
+
 const form = useForm({
     name: ''
 })
 </script>
 
 <template>
-    <AppLayout title="Create Category">
+    <AppLayout title="create Lessons">
         <template #header>
-            <h1 class="font-semibold text-xl text-gray-800 leading-tight">Create category</h1>
+            <h1 class="font-semibold text-xl text-gray-800 leading-tight">Create lesson</h1>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <CategoryForm :form="form" @submit="form.post(route('categories.store'))" />
+                        <LessonForm :form="form" :categories="categories" :levels="levels" @submit="form.post(route('lessons.store'))" />
                     </div>
                 </div>
             </div>
